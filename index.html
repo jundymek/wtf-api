@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Github api testing</title>
+  <meta name="description" content="Simple website to list repositories from github account" />
+
+  <!-- Title -->
+  <meta property="og:title" content="Github api testing" />
+  <!-- OPTIONAL description. 2-4 sentences. -->
+  <meta property="og:description" content="Simple website to list repositories from github account" />
+  <!-- full url with http(s) ie. https://maciejkorsan.github.io/my-repo/ -->
+  <meta property="og:url" content="https://jundymek.github.io/wtf-api/" />
+  <!-- full url to the image with http(s) ie. https://maciejkorsan.github.io/my-repo/assets/img/fb.png. Facebook suggests at least 1200 x 630. -->
+  <meta property="og:image" content="https://jundymek.github.io/wtf-api/assets/img/cover.png" />
+
+  <link rel="manifest" href="manifest.json" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <link rel="apple-touch-icon" sizes="192x192" href="assets/pwa/icons/icon-192x192.png" />
+
+  <link rel="icon" type="image/png" href="assets/pwa/icons/icon-192x192.png" />
+
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+  <main class="main">
+    <header class="header">
+      <h1 class="header__title">API testing</h1>
+    </header>
+    <div class="form-wrapper">
+      <form action="#" class="form">
+        <p class="form-field">
+          <label class="form-field__label" for="username">Enter github username</label><br>
+          <input class="form-field__input form-field__input--js" type="text" name="username" id="username"
+            placeholder="Enter username" value="">
+        </p>
+      </form>
+    </div>
+    <div class="separator"></div>
+    <div class="repository-wrapper repository-wrapper--js">
+        <div class="shell">
+            <div class="shell__top-bar">$Github API testing</div>
+            <div class="shell__button shell__button--left"></div>
+            <div class="shell__button shell__button--middle"></div>
+            <div class="shell__button shell__button--right"></div>
+            <ul class="shell__body">
+              <li class="shell__body-element shell__body-element--typing">Please enter username</li>
+              <li class="shell__body-element shell__body-element--typing-second">Magic will happen</li>
+              <li class="shell__body-element shell__body-element--typing-third">:-)</li>
+            </ul>
+          </div>
+    </div>
+    <footer class="footer"></footer>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
