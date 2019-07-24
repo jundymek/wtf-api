@@ -60,10 +60,9 @@ body {
             font-size: 14px;
             line-height: 24px;
             color: #45d40c;
-            animation: blink 3s step-end infinite;
         }
         &:focus {
-            animation: none;
+            outline: 4px solid #45d40c;
         }
     }
     &__label {
@@ -81,7 +80,6 @@ body {
         position: relative;
     }
     &__title {
-        // margin: 180px 360px 80px 0px;
         transform: rotate(-45deg) translate(-120%, -50%);
         font-family: Open Sans;
         font-style: normal;
@@ -91,7 +89,7 @@ body {
         position: relative;
         &::before {
             position: absolute;
-            content: url(/assets/img/github.png);
+            content: url(../assets/img/github.png);
             margin: -110px 0 0 30px;
             @media (max-width: $mobile) {
                 position: relative;
@@ -145,8 +143,6 @@ body {
     margin: 40px auto 0 auto;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
     position: relative;
-    
-
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -193,12 +189,12 @@ body {
             animation-fill-mode: forwards;
         }
         &--typing-third {
-          white-space: nowrap;
-          opacity: 0;
-          overflow: hidden;
-          animation: typing1 1s 5s steps(3, end);
-          animation-fill-mode: forwards;
-      }
+            white-space: nowrap;
+            opacity: 0;
+            overflow: hidden;
+            animation: typing1 1s 5s steps(3, end);
+            animation-fill-mode: forwards;
+        }
     }
     &__button::before {
         position: absolute;
@@ -208,6 +204,9 @@ body {
         width: 12px;
         content: "";
         border: 0.1px solid rgb(207, 205, 205);
+        @media (max-width: $mobile) {
+          display: none;
+        }
     }
     &__button--left::before {
         background-color: red;

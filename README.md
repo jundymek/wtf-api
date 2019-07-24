@@ -1,9 +1,27 @@
-# wtf-gulp-starter
+# Simple github API testing tool
 
-`npm install -g gulp-cli`
+Feel free to test it: [Github API testing tool](http://jundymek.github.io/wtf-api)
 
-`npm install`
 
-`gulp`
+This is homework from [WTF](https://cotenfrontend.pl) frontend course.
 
-To publish your page using github pages use `npm run deploy`
+It is the first API homework on WTF frontend course. It is a very simple project which lists user repositories. 
+
+![API testing tool - desktop version image](github/api.png)
+
+Tehnologies and tools used in this project:
+- HTML5
+- CSS3
+    - flexbox 
+    - grid
+    - media queries
+    - sass (scss syntax)
+- JS ES6
+- Visual Studio Code
+- Figma (layout design)
+- GULP
+- GIT
+- Node.js / NPM
+- Github API (fetch javascript method)
+
+and of course it is made fully responsive.
