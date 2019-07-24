@@ -11,9 +11,28 @@ html {
     box-sizing: inherit;
 }
 
+li {
+  min-height: 50px;
+}
+
 body {
-    color: $yellow;
+    color: $black;
     background: $violet;
+}
+
+.content {
+  list-style: none;
+  width: 100%;
+
+  &--fields {
+    margin-left: 66px;
+  }
+  &--data {
+    display: block;
+    word-wrap: break-word;
+    max-width: 320px;
+    width: 100%;
+  }
 }
 
 .form {
@@ -52,6 +71,7 @@ body {
 
 .header {
     position: absolute;
+    z-index: -1;
     @media (max-width: $mobile) {
         position: relative;
     }
@@ -76,6 +96,33 @@ body {
     height: 100vh;
     width: 100%;
     flex-direction: column;
+}
+
+.repository {
+  margin-top: 26px;
+  max-width: 640px;
+  width: 100%;
+  background: #EDE59F;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 40px;
+    grid-auto-rows: auto;
+    
+  }
+  &__number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px 0 5px 10px
+  }
+  &__title {
+    text-align: center;
+  }
 }
 
 .separator {
