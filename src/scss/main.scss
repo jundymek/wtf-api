@@ -12,7 +12,7 @@ html {
 }
 
 body {
-    color: white;
+    color:#45d40c;
     font: 1.3rem Inconsolata, monospace;
     background-color: black;
     background-image: radial-gradient(rgba(0, 150, 0, 0.75), black 120%);
@@ -47,16 +47,20 @@ body {
     &__input {
         width: 100%;
         height: 56px;
-        border-radius: 4px;
-        border: 1px solid #a1a4b1;
+        padding-left: 10px;
+        // border-radius: 4px;
+        border: 1px solid #45d40c;
+        background: transparent;
+        color: #45d40c;
         &::placeholder {
             padding-left: 18px;
             font-size: 14px;
             line-height: 24px;
-            color: #8b90a0;
+            color: #45d40c;
+            animation: blink 3s step-end infinite;
         }
         &:focus {
-            transform: scale(1.06);
+            animation: none;
         }
     }
     &__label {
@@ -111,26 +115,11 @@ body {
     justify-content: center;
     flex-direction: column;
     position: relative;
-    &__content {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        column-gap: 40px;
-        grid-auto-rows: auto;
-    }
-    &__number {
-        position: absolute;
-        top: 0;
-        left: 0;
-        margin: 10px 0 5px 10px;
-    }
-    &__title {
-        text-align: center;
-    }
 }
 
 .separator {
     display: block;
-    border-bottom: 5px solid #d3d4d8;
+    border-bottom: 5px solid #45d40c;
     max-width: 832px;
     width: 100%;
     margin-top: 48px;
@@ -140,7 +129,7 @@ body {
     display: block;
     max-width: 800px;
     width: 90%;
-    margin: 20px auto 0 auto;
+    margin: 40px auto 0 auto;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
     position: relative;
 
@@ -163,7 +152,7 @@ body {
         border-bottom-right-radius: 3px;
         border-bottom-left-radius: 3px;
         a {
-          color: #45d40c;
+            color: #45d40c;
         }
     }
     &__body-element {
@@ -185,7 +174,7 @@ body {
         height: 12px;
         width: 12px;
         content: "";
-        border: .1px solid rgb(207, 205, 205);
+        border: 0.1px solid rgb(207, 205, 205);
     }
     &__button--left::before {
         background-color: red;
@@ -258,18 +247,3 @@ body {
         }
     }
 }
-
-// .shell__body li:before {
-//     content: "$";
-//     position: absolute;
-//     left: 0;
-//     top: 0;
-// }
-
-// .shell__body li {
-//     word-wrap: break-word;
-//     position: relative;
-//     padding: 0 0 0 15px;
-//     min-height: 30px;
-// }
-
