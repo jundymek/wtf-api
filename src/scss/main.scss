@@ -11,28 +11,26 @@ html {
     box-sizing: inherit;
 }
 
-li {
-  min-height: 50px;
-}
-
 body {
-    color: $black;
-    background: $violet;
+    color: white;
+    font: 1.3rem Inconsolata, monospace;
+    background-color: black;
+    background-image: radial-gradient(rgba(0, 150, 0, 0.75), black 120%);
 }
 
 .content {
-  list-style: none;
-  width: 100%;
-
-  &--fields {
-    margin-left: 66px;
-  }
-  &--data {
-    display: block;
-    word-wrap: break-word;
-    max-width: 320px;
+    list-style: none;
     width: 100%;
-  }
+
+    &--fields {
+        margin-left: 66px;
+    }
+    &--data {
+        display: block;
+        word-wrap: break-word;
+        max-width: 320px;
+        width: 100%;
+    }
 }
 
 .form {
@@ -76,7 +74,7 @@ body {
         position: relative;
     }
     &__title {
-        margin: 140px 720px 80px 0px;
+        margin: 140px 520px 80px 0px;
         transform: rotate(-45deg);
         font-family: Open Sans;
         font-style: normal;
@@ -98,31 +96,36 @@ body {
     flex-direction: column;
 }
 
+.repository-wrapper {
+    display: block;
+    max-width: 800px;
+    width: 90%;
+}
+
 .repository {
-  margin-top: 26px;
-  max-width: 640px;
-  width: 100%;
-  background: #EDE59F;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  position: relative;
-  &__content {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    column-gap: 40px;
-    grid-auto-rows: auto;
-    
-  }
-  &__number {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 10px 0 5px 10px
-  }
-  &__title {
-    text-align: center;
-  }
+    margin-top: 26px;
+    max-width: 640px;
+    width: 100%;
+    // background: #EDE59F;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    &__content {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        column-gap: 40px;
+        grid-auto-rows: auto;
+    }
+    &__number {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 10px 0 5px 10px;
+    }
+    &__title {
+        text-align: center;
+    }
 }
 
 .separator {
@@ -132,3 +135,141 @@ body {
     width: 100%;
     margin-top: 48px;
 }
+
+.shell {
+    display: block;
+    max-width: 800px;
+    width: 90%;
+    margin: 20px auto 0 auto;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+    position: relative;
+
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    &__body {
+        margin: 0;
+        padding: 5px;
+        list-style: none;
+        background: #141414;
+        color: #45d40c;
+        font: 0.8em "Andale Mono", Consolas, "Courier New";
+        line-height: 1.2em;
+
+        -webkit-border-bottom-right-radius: 3px;
+        -webkit-border-bottom-left-radius: 3px;
+        -moz-border-radius-bottomright: 3px;
+        -moz-border-radius-bottomleft: 3px;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+        a {
+          color: #45d40c;
+        }
+    }
+    &__body-element {
+        word-wrap: break-word;
+        position: relative;
+        padding: 0 0 0 15px;
+        min-height: 30px;
+        &::before {
+            content: "$";
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+    &__button::before {
+        position: absolute;
+        border-radius: 50%;
+        top: 0;
+        height: 12px;
+        width: 12px;
+        content: "";
+        border: .1px solid rgb(207, 205, 205);
+    }
+    &__button--left::before {
+        background-color: red;
+        margin: 10px 0 0 10px;
+    }
+    &__button--middle::before {
+        background-color: #f1ee0d;
+        margin: 10px 0 0 30px;
+    }
+    &__button--right::before {
+        background-color: #0cca2c;
+        margin: 10px 0 0 50px;
+    }
+    &__top-bar {
+        text-align: center;
+        color: #525252;
+        padding: 5px 0;
+        margin: 0;
+        text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+        font-size: 0.85em;
+        border: 1px solid #cccccc;
+        border-bottom: none;
+
+        -webkit-border-top-left-radius: 3px;
+        -webkit-border-top-right-radius: 3px;
+        -moz-border-radius-topleft: 3px;
+        -moz-border-radius-topright: 3px;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+
+        background: #f7f7f7; /* Old browsers */
+        background: -moz-linear-gradient(
+            top,
+            #f7f7f7 0%,
+            #b8b8b8 100%
+        ); /* FF3.6+ */
+        background: -webkit-gradient(
+            linear,
+            left top,
+            left bottom,
+            color-stop(0%, #f7f7f7),
+            color-stop(100%, #b8b8b8)
+        ); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(
+            top,
+            #f7f7f7 0%,
+            #b8b8b8 100%
+        ); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(
+            top,
+            #f7f7f7 0%,
+            #b8b8b8 100%
+        ); /* Opera 11.10+ */
+        background: -ms-linear-gradient(
+            top,
+            #f7f7f7 0%,
+            #b8b8b8 100%
+        ); /* IE10+ */
+        background: linear-gradient(
+            to bottom,
+            #f7f7f7 0%,
+            #b8b8b8 100%
+        ); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#B8B8B8',GradientType=0 ); /* IE6-9 */
+        &::before {
+            content: " ";
+            font-size: 10px;
+            background: red;
+            border-radius: 10%;
+        }
+    }
+}
+
+// .shell__body li:before {
+//     content: "$";
+//     position: absolute;
+//     left: 0;
+//     top: 0;
+// }
+
+// .shell__body li {
+//     word-wrap: break-word;
+//     position: relative;
+//     padding: 0 0 0 15px;
+//     min-height: 30px;
+// }
+
