@@ -36,19 +36,21 @@ body {
 .form {
     max-width: 400px;
     width: 100%;
-    margin-top: 150px;
+    margin: 150px 0 0 200px;
     @media (max-width: $mobile) {
-        margin-top: 20px;
+      margin: 20px auto 0  auto;
     }
 }
 
 .form-field {
     display: block;
     &__input {
-        width: 100%;
+        width: 80%;
+        @media (max-width: $mobile) {
+          width: 100%;
+        }
         height: 56px;
         padding-left: 10px;
-        // border-radius: 4px;
         border: 1px solid #45d40c;
         background: transparent;
         color: #45d40c;
@@ -78,15 +80,26 @@ body {
         position: relative;
     }
     &__title {
-        margin: 140px 520px 80px 0px;
-        transform: rotate(-45deg);
+        // margin: 180px 360px 80px 0px;
+        transform: rotate(-45deg) translate(-120%, -50%);
         font-family: Open Sans;
         font-style: normal;
         font-weight: bold;
-        font-size: 64px;
+        font-size: 44px;
         line-height: 64px;
+        position: relative;
+        &::before {
+          position: absolute;
+          content: url(/assets/img/github.png);
+          margin: -110px 0 0 30px;
+          @media (max-width: $mobile) {
+            position: relative;
+            transform: none;
+        }
+        }
         @media (max-width: $mobile) {
             margin: 50px 0 0 0;
+            font-size: 34px;
             transform: none;
         }
     }
@@ -110,7 +123,6 @@ body {
     margin-top: 26px;
     max-width: 640px;
     width: 100%;
-    // background: #EDE59F;
     display: flex;
     justify-content: center;
     flex-direction: column;

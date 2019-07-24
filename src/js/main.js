@@ -40,7 +40,7 @@ inputValue.addEventListener("keydown", e => {
       })
       .catch((error) => {
         console.log(error)
-        if (error.message.includess("Not Found")) {
+        if (error.message.includes("Not Found")) {
           console.log('aaa')
         }
       });
