@@ -32,7 +32,7 @@ inputValue.addEventListener("keydown", e => {
   if (keyCode == 13) {
     // enter key code
     e.preventDefault();
-    fetch(`https://api.github.com/users/${inputValue.value}/repos`)
+    fetch(`https://api.github.com/users/${inputValue.value}/repos?sort=updated&direction=desc`)
       .then(resp => resp.json())
       .then(resp => {
         console.log(resp.message)
@@ -48,7 +48,6 @@ inputValue.addEventListener("keydown", e => {
 });
 
 const data = data => {
-  console.log(data);
   for (let i = 0; i < data.length; i++) {
     const name = data[i]["name"];
     const path = data[i]["url"];
@@ -57,7 +56,7 @@ const data = data => {
     const description = data[i]["description"];
     repository.innerHTML += `
           <div class="shell">
-            <div class="shell__top-bar">${i + 1}. $${name.slice(0,15)}</div>
+            <div class="shell__top-bar">${i + 1}. $${window.innerWidth < 640 ? name.slice(0, 15) : name}</div>
             <div class="shell__button shell__button--left"></div>
             <div class="shell__button shell__button--middle"></div>
             <div class="shell__button shell__button--right"></div>
