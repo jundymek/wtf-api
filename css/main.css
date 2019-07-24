@@ -390,37 +390,29 @@ body {
       padding-left: 18px;
       font-size: 14px;
       line-height: 24px;
-      color: #45d40c;
-      -webkit-animation: blink 3s step-end infinite;
-              animation: blink 3s step-end infinite; }
+      color: #45d40c; }
     .form-field__input::-moz-placeholder {
       padding-left: 18px;
       font-size: 14px;
       line-height: 24px;
-      color: #45d40c;
-      animation: blink 3s step-end infinite; }
+      color: #45d40c; }
     .form-field__input:-ms-input-placeholder {
       padding-left: 18px;
       font-size: 14px;
       line-height: 24px;
-      color: #45d40c;
-      animation: blink 3s step-end infinite; }
+      color: #45d40c; }
     .form-field__input::-ms-input-placeholder {
       padding-left: 18px;
       font-size: 14px;
       line-height: 24px;
-      color: #45d40c;
-      animation: blink 3s step-end infinite; }
+      color: #45d40c; }
     .form-field__input::placeholder {
       padding-left: 18px;
       font-size: 14px;
       line-height: 24px;
-      color: #45d40c;
-      -webkit-animation: blink 3s step-end infinite;
-              animation: blink 3s step-end infinite; }
+      color: #45d40c; }
     .form-field__input:focus {
-      -webkit-animation: none;
-              animation: none; }
+      outline: 4px solid #45d40c; }
   .form-field__label {
     font-size: 14px;
     font-weight: 600;
@@ -445,7 +437,7 @@ body {
     position: relative; }
     .header__title::before {
       position: absolute;
-      content: url(/assets/img/github.png);
+      content: url(../assets/img/github.png);
       margin: -110px 0 0 30px; }
       @media (max-width: 640px) {
         .header__title::before {
@@ -567,6 +559,9 @@ body {
     width: 12px;
     content: "";
     border: 0.1px solid #cfcdcd; }
+    @media (max-width: 640px) {
+      .shell__button::before {
+        display: none; } }
   .shell__button--left::before {
     background-color: red;
     margin: 10px 0 0 10px; }
