@@ -57,11 +57,12 @@ const data = data => {
     const description = data[i]["description"];
     repository.innerHTML += `
           <div class="shell">
-            <div class="shell__top-bar">${i + 1}. $${name}</div>
+            <div class="shell__top-bar">${i + 1}. $${name.slice(0,15)}</div>
             <div class="shell__button shell__button--left"></div>
             <div class="shell__button shell__button--middle"></div>
             <div class="shell__button shell__button--right"></div>
             <ul class="shell__body">
+              <li class="shell__body-element">name: ${name}</li>
               <li class="shell__body-element">path: <a href="${path}">${path}</a></li>
               <li class="shell__body-element">created:  ${creationTime}</li>
               <li class="shell__body-element">edited: ${lastUpdate}</li>
