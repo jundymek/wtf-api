@@ -337,6 +337,24 @@ template {
     width: 100%;
     opacity: 1; } }
 
+@-webkit-keyframes blink {
+  0%,
+  50%,
+  100% {
+    opacity: 1; }
+  25%,
+  75% {
+    opacity: 0; } }
+
+@keyframes blink {
+  0%,
+  50%,
+  100% {
+    opacity: 1; }
+  25%,
+  75% {
+    opacity: 0; } }
+
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
@@ -379,6 +397,9 @@ body {
     background: transparent;
     border: 1px solid #45d40c;
     color: #45d40c; }
+    .form__button--blink {
+      -webkit-animation: blink .6s;
+              animation: blink .6s; }
     @media (max-width: 640px) {
       .form__button {
         width: 100%; } }
@@ -447,17 +468,19 @@ body {
     background: transparent;
     color: #45d40c;
     border: 1px solid #45d40c;
-    border-radius: 0px; }
+    border-radius: 0; }
   .form-field select {
     font-size: 16px;
     font-weight: 500; }
 
 .header {
-  position: absolute;
-  z-index: -1; }
+  position: absolute; }
   @media (max-width: 640px) {
     .header {
       position: relative; } }
+  .header__link {
+    all: unset;
+    cursor: pointer; }
   .header__title {
     -webkit-transform: rotate(-45deg) translate(-120%, -50%);
         -ms-transform: rotate(-45deg) translate(-120%, -50%);
