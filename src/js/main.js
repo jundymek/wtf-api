@@ -36,7 +36,7 @@ inputValue.addEventListener("keydown", e => {
       .then(resp => resp.json())
       .then(resp => {
         console.log(resp.message)
-        data(resp);
+        listRepozitories(resp);
       })
       .catch((error) => {
         console.log(error)
@@ -47,14 +47,15 @@ inputValue.addEventListener("keydown", e => {
   }
 });
 
-const data = data => {
+const listRepozitories = data => {
+  let temp = '';
   for (let i = 0; i < data.length; i++) {
     const name = data[i]["name"];
     const path = data[i]["url"];
     const creationTime = data[i]["created_at"].slice(0, 10);
     const lastUpdate = data[i]["updated_at"].slice(0, 10);
     const description = data[i]["description"];
-    repository.innerHTML += `
+    temp += `
           <div class="shell">
             <div class="shell__top-bar">${i + 1}. $${window.innerWidth < 640 ? name.slice(0, 15) : name}</div>
             <div class="shell__button shell__button--left"></div>
@@ -70,4 +71,5 @@ const data = data => {
           </div>
     `;
   }
+  repository.innerHTML = temp;
 };
