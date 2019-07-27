@@ -205,7 +205,7 @@ body {
         content: "";
         border: 0.1px solid rgb(207, 205, 205);
         @media (max-width: $mobile) {
-          display: none;
+            display: none;
         }
     }
     &__button--left::before {
@@ -277,5 +277,12 @@ body {
             background: red;
             border-radius: 10%;
         }
+    }
+    &__image {
+        width: 200px;
+        height: 200px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
 }

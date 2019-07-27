@@ -67,7 +67,15 @@ const userNotFound = (username) => {
 
 const listRepozitories = (data, username) => {
   if (data.length) {
-    let temp = '';
+    let temp = `<div class="shell">
+                  <div class="shell__top-bar">${username} repos</div>
+                  <div class="shell__button shell__button--left"></div>
+                  <div class="shell__button shell__button--middle"></div>
+                  <div class="shell__button shell__button--right"></div>
+                  <ul class="shell__body">
+                    <li class="shell__body-element"><img class="shell__image" src="${data[0]['owner']['avatar_url']}" alt="Repository owner username image."></li>
+                  </ul>
+                </div>`;
     for (let i = 0; i < data.length; i++) {
       const name = data[i]["name"];
       const path = data[i]["url"];
