@@ -41,7 +41,7 @@ inputValue.addEventListener("keydown", e => {
           userNotFound(username);
         } else {
           console.log(resp)
-          listRepozitories(resp);
+          listRepozitories(resp, username);
         }
       })
       .catch((error) => {
@@ -65,15 +65,16 @@ const userNotFound = (username) => {
   repository.innerHTML = resp;
 }
 
-const listRepozitories = data => {
-  let temp = '';
-  for (let i = 0; i < data.length; i++) {
-    const name = data[i]["name"];
-    const path = data[i]["url"];
-    const creationTime = data[i]["created_at"].slice(0, 10);
-    const lastUpdate = data[i]["updated_at"].slice(0, 10);
-    const description = data[i]["description"];
-    temp += `
+const listRepozitories = (data, username) => {
+  if (data.length) {
+    let temp = '';
+    for (let i = 0; i < data.length; i++) {
+      const name = data[i]["name"];
+      const path = data[i]["url"];
+      const creationTime = data[i]["created_at"].slice(0, 10);
+      const lastUpdate = data[i]["updated_at"].slice(0, 10);
+      const description = data[i]["description"];
+      temp += `
           <div class="shell">
             <div class="shell__top-bar">${i + 1}. $${window.innerWidth < 640 ? name.slice(0, 15) : name}</div>
             <div class="shell__button shell__button--left"></div>
@@ -88,6 +89,20 @@ const listRepozitories = data => {
             </ul>
           </div>
     `;
+    }
+    repository.innerHTML = temp;
+  } else {
+    let resp = `
+              <div class="shell">
+                <div class="shell__top-bar">${username} repositories</div>
+                <div class="shell__button shell__button--left"></div>
+                <div class="shell__button shell__button--middle"></div>
+                <div class="shell__button shell__button--right"></div>
+                <ul class="shell__body">
+                  <li class="shell__body-element">User with username: ${username} doesn't have public repositories</li>
+                </ul>
+              </div>
+                    `;
+    repository.innerHTML = resp;
   }
-  repository.innerHTML = temp;
 };
