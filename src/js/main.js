@@ -26,29 +26,27 @@ const inputValue = document.querySelector(".form-field__input--js");
 const repository = document.querySelector(".repository-wrapper--js");
 const repositoryTitle = document.querySelector(".repository__title--js");
 const repositoryData = document.querySelector(".repository__content--js");
+const sortBy = document.querySelector(".form-field__select--sort-js");
+const sortDirection = document.querySelector(".form-field__select--direction-js");
+const submitButton = document.querySelector(".form__button--js");
 
-inputValue.addEventListener("keydown", e => {
-  var keyCode = e.which || e.keyCode;
-  if (keyCode == 13) {
-    // enter key code
-    e.preventDefault();
-    let username = inputValue.value;
-    console.log(username)
-    fetch(`https://api.github.com/users/${username}/repos?sort=updated&direction=desc`)
-      .then(resp => resp.json())
-      .then(resp => {
-        if (resp.message && resp.message.includes("Not Found")) {
-          userNotFound(username);
-        } else {
-          console.log(resp)
-          listRepozitories(resp, username);
-        }
-      })
-      .catch((error) => {
-        console.log(error)
-      });
-  }
-});
+submitButton.addEventListener("click", e => {
+  e.preventDefault();
+  let username = inputValue.value;
+  fetch(`https://api.github.com/users/${username}/repos?sort=${sortBy.value}&direction=${sortDirection.value}`)
+    .then(resp => resp.json())
+    .then(resp => {
+      if (resp.message && resp.message.includes("Not Found")) {
+        userNotFound(username);
+      } else {
+        console.log(resp)
+        listRepozitories(resp, username);
+      }
+    })
+    .catch((error) => {
+      console.log(error)
+    });
+})
 
 const userNotFound = (username) => {
   let resp = `
@@ -66,6 +64,8 @@ const userNotFound = (username) => {
 }
 
 const listRepozitories = (data, username) => {
+  console.log(sortBy.value)
+  console.log(sortDirection.value)
   if (data.length) {
     let temp = `<div class="shell">
                   <div class="shell__top-bar">${username} repos</div>
@@ -92,7 +92,7 @@ const listRepozitories = (data, username) => {
               <li class="shell__body-element">name: ${name}</li>
               <li class="shell__body-element">path: <a href="${path}">${path}</a></li>
               <li class="shell__body-element">created:  ${creationTime}</li>
-              <li class="shell__body-element">edited: ${lastUpdate}</li>
+              <li class="shell__body-element">updated: ${lastUpdate}</li>
               <li class="shell__body-element">description: ${description ? description : 'No description for this project'}</li>
             </ul>
           </div>

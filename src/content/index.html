@@ -38,6 +38,24 @@
           <input class="form-field__input form-field__input--js" type="text" name="username" id="username"
             placeholder="Enter username" value="">
         </p>
+        <div class="form-wrapper-inner">
+          <p class="form-field">
+            <label class="form-field__label" for="username">Order by</label><br>
+            <select class="form-field__select form-field__select--sort-js" name="orderby" id="orderby">
+              <option value="created">created</option>
+              <option value="updated" selected="selected">updated</option>
+              <option value="name">name</option>
+            </select>
+          </p>
+          <p class="form-field">
+            <label class="form-field__label" for="username">Desc/asc</label><br>
+            <select class="form-field__select form-field__select--direction-js" name="direction" id="direction">
+              <option value="asc">asc</option>
+              <option value="desc" selected="selected">desc</option>
+            </select>
+          </p>
+        </div>
+        <button class="form__button form__button--js" type="submit">Submit</button>
       </form>
     </div>
     <div class="separator"></div>
