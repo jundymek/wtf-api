@@ -32,20 +32,38 @@ inputValue.addEventListener("keydown", e => {
   if (keyCode == 13) {
     // enter key code
     e.preventDefault();
-    fetch(`https://api.github.com/users/${inputValue.value}/repos?sort=updated&direction=desc`)
+    let username = inputValue.value;
+    console.log(username)
+    fetch(`https://api.github.com/users/${username}/repos?sort=updated&direction=desc`)
       .then(resp => resp.json())
       .then(resp => {
-        console.log(resp.message)
-        listRepozitories(resp);
+        if (resp.message && resp.message.includes("Not Found")) {
+          userNotFound(username);
+        } else {
+          console.log(resp)
+          listRepozitories(resp);
+        }
       })
       .catch((error) => {
         console.log(error)
-        if (error.message.includes("Not Found")) {
-          console.log('aaa')
-        }
       });
   }
 });
+
+const userNotFound = (username) => {
+  let resp = `
+          <div class="shell">
+            <div class="shell__top-bar">Error</div>
+            <div class="shell__button shell__button--left"></div>
+            <div class="shell__button shell__button--middle"></div>
+            <div class="shell__button shell__button--right"></div>
+            <ul class="shell__body">
+              <li class="shell__body-element">User with username: ${username} doesn't exists</li>
+            </ul>
+          </div>
+        `;
+  repository.innerHTML = resp;
+}
 
 const listRepozitories = data => {
   let temp = '';
