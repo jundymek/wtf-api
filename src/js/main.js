@@ -32,6 +32,10 @@ const submitButton = document.querySelector(".form__button--js");
 
 submitButton.addEventListener("click", e => {
   e.preventDefault();
+  submitButton.classList.add('form__button--blink');
+  setTimeout(() => {
+    submitButton.classList.remove('form__button--blink');
+  }, 600)
   let username = inputValue.value;
   fetch(`https://api.github.com/users/${username}/repos?sort=${sortBy.value}&direction=${sortDirection.value}`)
     .then(resp => resp.json())
@@ -46,6 +50,7 @@ submitButton.addEventListener("click", e => {
     .catch((error) => {
       console.log(error)
     });
+    
 })
 
 const userNotFound = (username) => {
