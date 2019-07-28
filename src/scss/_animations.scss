@@ -22,11 +22,13 @@
 
 @keyframes blink {
     0%,
+    10%,
     50%,
     100% {
       opacity: 1;
     }
     25%,
+    35%,
     75% {
       opacity: 0;
     }

@@ -34,6 +34,26 @@ body {
     }
 }
 
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    width:100%;
+    border-top: 1px dotted #45d40c;
+    padding:20px 0 20px 0;
+    row-gap: 110px;
+    margin-top: 30px;
+    &__icon {
+        margin: 0 10px 0 10px;
+        width: 30px;
+        height: 30px;
+        &--path {
+            fill:#45d40c;
+        }
+    }
+}
+
 .form {
     max-width: 400px;
     width: 100%;
@@ -47,6 +67,10 @@ body {
         background: transparent;
         border: 1px solid #45d40c ;
         color: #45d40c;
+        &:active {
+            animation: blink .6s;
+            // animation-play-state: running;
+        }
         &--blink {
             animation: blink .6s;
         }        
